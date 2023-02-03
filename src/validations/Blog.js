@@ -1,7 +1,4 @@
-import DateExtension from "@joi/date";
-import * as JoiImport from "joi";
-
-const Joi = JoiImport.extend(DateExtension);
+import Joi from "joi";
 
 const blogSchema = Joi.object({
   title: Joi.string().min(8).max(200).required(),

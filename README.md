@@ -1,3 +1,3 @@
 # My Brand API
 
-This is the source code of [my tutorial](https://rahmanfadhil.com/express-rest-api/)
+This is the API for my brand

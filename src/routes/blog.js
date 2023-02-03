@@ -8,6 +8,7 @@ import {
 } from "../controllers/blog";
 import validate from "../middlewares/validate";
 import blogSchema from "../validations/Blog";
+
 const router = Router();
 
 router.get("/blog", getBlogs);
