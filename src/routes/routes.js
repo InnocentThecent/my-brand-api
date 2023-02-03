@@ -1,6 +1,6 @@
-const express = require("express");
-const Post = require("../models/Post");
-const router = express.Router();
+import { Router } from "express";
+import Post from "../models/Post";
+const router = Router();
 
 router.get("/posts", async (req, res) => {
   const posts = await Post.find();
@@ -56,4 +56,4 @@ router.delete("/posts/:id", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
