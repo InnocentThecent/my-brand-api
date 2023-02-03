@@ -1,20 +1,19 @@
 import express, { json } from "express";
 import { connect } from "mongoose";
-import routes from "./routes/routes";
+import routes from "./routes/blog";
 
 import { config } from "dotenv";
-import app from "d:/pro/my-blog/src";
-config();
 
 const app = express();
 app.use(json());
 app.use("/api", routes);
+config();
 
 connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
-  app.listen(5000, () => {
+  app.listen(4000, () => {
     console.log("Database connected !");
   });
 });
