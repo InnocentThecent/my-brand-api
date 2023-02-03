@@ -2,12 +2,12 @@ import { Router } from "express";
 import Post from "../models/Post";
 const router = Router();
 
-router.get("/posts", async (req, res) => {
-  const posts = await Post.find();
-  res.send(posts);
+router.get("/blog", async (req, res) => {
+  const blog = await Post.find();
+  res.send(blog);
 });
 
-router.post("/posts", async (req, res) => {
+router.post("/blog", async (req, res) => {
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
@@ -16,7 +16,7 @@ router.post("/posts", async (req, res) => {
   res.send(post);
 });
 
-router.get("/posts/:id", async (req, res) => {
+router.get("/blog/:id", async (req, res) => {
   try {
     const post = await Post.findOne({ _id: req.params.id });
     res.send(post);
@@ -26,7 +26,7 @@ router.get("/posts/:id", async (req, res) => {
   }
 });
 
-router.patch("/posts/:id", async (req, res) => {
+router.patch("/blog/:id", async (req, res) => {
   try {
     const post = await Post.findOne({ _id: req.params.id });
 
@@ -46,7 +46,7 @@ router.patch("/posts/:id", async (req, res) => {
   }
 });
 
-router.delete("/posts/:id", async (req, res) => {
+router.delete("/blog/:id", async (req, res) => {
   try {
     await Post.deleteOne({ _id: req.params.id });
     res.status(204).send();
