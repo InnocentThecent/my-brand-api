@@ -5,10 +5,10 @@ import querySchema from "../validations/query";
 
 const router = Router();
 
-router.get("/blog", getQueries);
+router.get("/", getQueries);
 
-router.post("/blog", validate(querySchema), addQuery);
+router.post("/", validate(querySchema), addQuery);
 
-router.delete("/blog/:id", removeQuery);
+router.delete("/:id", removeQuery);
 
 export default router;

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import passport from "passport";
 import {
   createBlog,
   deleteBlog,
@@ -11,14 +12,19 @@ import blogSchema from "../validations/Blog";
 
 const router = Router();
 
-router.get("/blog", getBlogs);
+router.get("/", getBlogs);
 
-router.post("/blog", validate(blogSchema), createBlog);
+router.post(
+  "/",
+  validate(blogSchema),
+  passport.authenticate("jwt", { session: false }),
+  createBlog
+);
 
-router.get("/blog/:id", getOneBlog);
+router.get("/:id", getOneBlog);
 
-router.patch("/blog/:id", updateBlog);
+router.patch("/:id", updateBlog);
 
-router.delete("/blog/:id", deleteBlog);
+router.delete("/:id", deleteBlog);
 
 export default router;
